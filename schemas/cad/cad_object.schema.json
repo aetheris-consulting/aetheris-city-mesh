@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "City Mesh CAD Object",
+  "type": "object",
+  "required": ["cad_id", "object_type", "name", "state", "geometry_ref"],
+  "properties": {
+    "cad_id": {"type": "string"},
+    "object_type": {
+      "type": "string",
+      "enum": ["road_segment", "bridge_component", "storm_drain", "utility_asset", "building_shell", "terrain_patch", "robot_path_volume", "temporary_barrier", "repair_patch", "sensor_mount"]
+    },
+    "name": {"type": "string"},
+    "state": {"type": "string", "enum": ["candidate", "committed", "deprecated", "quarantined"]},
+    "geometry_ref": {
+      "type": "object",
+      "properties": {
+        "format": {"type": "string", "enum": ["freecad", "ifc", "step", "obj", "stl", "geojson", "citygml", "3dtiles", "none"]},
+        "uri": {"type": "string"},
+        "hash": {"type": "string"}
+      }
+    },
+    "map_feature_id": {"type": "string"},
+    "d2l_state": {"type": "string", "enum": ["Dark", "Grey", "Light", "Bright"]},
+    "risk_class": {"type": "string", "enum": ["C0", "C1", "C2", "C3", "C4"]},
+    "provenance": {"type": "object"}
+  }
+}
