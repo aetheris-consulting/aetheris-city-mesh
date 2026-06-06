@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "City Mesh Map Feature",
+  "type": "object",
+  "required": ["feature_id", "layer", "state", "geometry", "properties"],
+  "properties": {
+    "feature_id": {"type": "string"},
+    "layer": {"type": "string"},
+    "state": {"type": "string", "enum": ["candidate", "committed", "quarantined", "deprecated"]},
+    "geometry": {"type": "object", "description": "GeoJSON geometry object"},
+    "properties": {"type": "object"},
+    "d2l_state": {"type": "string", "enum": ["Dark", "Grey", "Light", "Bright"]},
+    "risk_class": {"type": "string", "enum": ["C0", "C1", "C2", "C3", "C4"]},
+    "linked_cad_ids": {"type": "array", "items": {"type": "string"}},
+    "provenance": {"type": "object"}
+  }
+}
