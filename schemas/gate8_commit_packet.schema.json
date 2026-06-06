@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Gate 8 City Commit Packet",
+  "type": "object",
+  "required": ["commit_id", "candidate_state_id", "risk_class", "validated_evidence", "authority", "decision"],
+  "properties": {
+    "commit_id": {"type": "string"},
+    "candidate_state_id": {"type": "string"},
+    "risk_class": {"type": "string", "enum": ["C0", "C1", "C2", "C3", "C4"]},
+    "validated_evidence": {"type": "boolean"},
+    "simulation_required": {"type": "boolean"},
+    "simulation_result_id": {"type": "string"},
+    "authority": {"type": "object"},
+    "rollback_plan": {"type": "string"},
+    "audit_hash": {"type": "string"},
+    "decision": {"type": "string", "enum": ["commit", "reject", "quarantine", "escalate", "preserve_unknown"]}
+  }
+}
